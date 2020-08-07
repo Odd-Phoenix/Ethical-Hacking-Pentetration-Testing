@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Users and privileges</title>
+</head><body>When the command ls -la, brings up all files (including the hidden ones). Here is what certain characters represent:<br/>
+<br/>
+- : means it's a file.<br/>
+d : directory.<br/>
+rwx : read, write, execute. It's the permision setings that a particular file has.This is where owners can read, write and execute files.<br/>
+r -x : read and execute files only, for group users.<br/>
+r -x : users can only read and execute.<br/>
+<br/>
+There are three stages of privileges when the li -la command is executed.The above characters, would tell the level of privileges given.<br/>
+the first is for the owner, the second is for group users, and the third is for basic users. In a case where a file is all rwx (read, write, execute) on all stages, it'll look like this: drwxrwxrwt. As shown below<br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+<br/>
+The below is, rwx (read, write, execute) - for owner, xr (read, execute) - for group users, and x (execute) - for other user.<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+<br/>
+Creating a script, it won't run until given full access (rwx). So changing access: create a file (echo "what is written in file" file name.txt), by default the privileges given are -rw-r--r (read, write - for owner and read - for everyone else). So to change privileges/mode, use chmod (change mode), there are a couple options, 777 gives full rwx access across all stages. To execute this for the above example, chmod 777 name of file.txt, it changes file privileges to the full access.<br/>
+<br/>
+<br/>
+Creating a file:<br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+Created file efault privileges:<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+Changing the privileges to all rwx:<br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+Privileges changed to all rwx:<br/>
+<br/>
+<img src="image 6.png" /><br/>
+<br/>
+Notice, the color of the file changes too, showing that full privilege is granted.<br/>
+Changing the mode (chmod), can also be done by writing chmod +x filename.file extension, an alternative to using chmod 777 filename ,file extension.<br/>
+<br/>
+To add a new user: adduser username (eg Alice), set password and fill in the other field if needed.<br/>
+cat /etc/psswd - shows all the users,but doesn't show the password.<br/>
+cat /etc/shadow - shows the hashing format for user passwords. Hashing tool (like hashcat), can be used to break it down and crack the password.Having access to the shadow files gives a large possibilty of getting the user privilege, especially if you're good at cracking passwords.<br/>
+<br/>
+To switch user: su (switch user) username (eg Alice) If switched to a user that isn't root, switching back to root requires root's password.<br/>
+<br/>
+Root has full access and permmission to do everything but until other created users are assigned full privileges, their access will be limited.<br/>
+For a user, other than root to have full access to files, they have to access the sudo file. While in the user, type in command: sudo passwd root. <br/>
+This will automatically ask for present users password and change into root</body></html>

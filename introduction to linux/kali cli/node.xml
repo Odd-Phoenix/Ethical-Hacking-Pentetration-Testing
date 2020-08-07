@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Kali CLI</string>
+  <key>nodeid</key><string>dd49b910-7198-489e-8f9c-dd9c2f2ece4b</string>
+  <key>modified_time</key><integer>1596335172</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1596285122</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
