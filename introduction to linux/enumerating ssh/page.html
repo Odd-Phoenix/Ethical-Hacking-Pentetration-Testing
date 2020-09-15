@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>enumerating SSH</title>
+</head><body><b>Enumerating SSH.</b><br/>
+<br/>
+First, I want to let you know that SSH isn't really exciting, because there isn't a lot of oppurtunities for remote code executio. So we;ll really have to do brute force and spray.<br/>
+<br/>
+From the original scan, we saw that SSH was open. We're going to attempt to connect to SSH, to this specific port and see if we getany information aboutwhat's running, and that's it. If we try to make an attempt to login, then it becomes exploitation and we'll save thatfor the exploitation section of the course, so we're just going to sniff around it without touching anything. <br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+To ssh, you just type in ssh and the IP adress you want to ssh to, like this:<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+But because the Kioptrix box is old we get this message:<br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+So we're going to use a slightly different syntax, it's not common but very useful to have.<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+Which results in a no matching cipher found error, so we'll have to add a -c to the command and paste in their first offer from the error. Like this:<br/>
+<br/>
+<img src="image 6.png" /><br/>
+<br/>
+This should now give us the oppurtunity to connect:<br/>
+<br/>
+<img src="image 7.png" /><br/>
+<br/>
+Type in yes and hit enter. It asks us for a password, which we obviously don't have, so there is nothing here for us. Hit ctrl + c to exit.<br/>
+<br/>
+<img src="image 8.png" /><br/>
+<br/>
+We attempted to make this connection because, sometimes a banner is exposed and would say what version of SSH it;s running and who it was built by. Unfortuntely, we didn't get a banner but fortunenately, when we did our initial scan, we were able to get version2.9p2<br/>
+<br/>
+<img src="image 9.png" /><br/>
+<br/>
+This is it for SSH, remember I said, it wasn't fun? I wasn't kidding. <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enumeration - part1</title>
+</head><body><b>Enumerating HTTP/HTTPS. (Part 1)</b><br/>
+<br/>
+So from our nmap scanwe've got 22/SSH, 80 &amp; 443 which are hosting websites, 139 which has file share with samba on it. <br/>
+<br/>
+We need to think like an attacker would and figure out our point of attack. As a beginner, I don't expect you to know that port 80 &amp; 443, 139 are commonly found with exploits, it'll take a series of hacks to know that off the top of your head. But what I suggest is googling your port, to find out about thier vulnerabilities.<br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+Remember, Google is your best friend. I really think it's the best way to get a grasp of the possible vulnerabilities and exploits, just google it, until you have a firm grip on some basic ports and their vulnerabilities. <br/>
+<br/>
+We're going to start with the enumeration of port 80 &amp; 443.<br/>
+The first step should be to go out to the website, so copy the target IP address and paste it in the url search bar and there's nothing to get from visiting the page.<br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+So lets scan for vulnerabilities, using a new tool called nikto. Nikto is a vulnerability scanner, and it's a great beginner tool &nbsp;for practicing with ctfs or boxes. If you use this tool against a clients website and the site is running good security, it might auto block your scan if it's detected, not always though. So if you get the sense that a client has a web application firewall, you'll get a feel for this has you get more practice, don't use it.<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+From the scan result you can see that it detects theserver version running, giving us some vulnerabilities back and tells us what's missing in terms of protection (which isn't really important if it's a external pen test but are more inportant for a web applic pen test.). It shows the outdated software and in a case where we find these on a clients site, we put these finding on the report (I'll show you how to go about making reports in a later section), It also tells us the types of attacks that can be carrie out with the available vulnerabilities<br/>
+<br/>
+Save the scan, just copy it and save it into a directory, and gedit a file for it. You are free to name your file whatever you like. This is part of bring a good pentester, saving your scans and having them available, incase you need to go back to them or make refrences.<br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

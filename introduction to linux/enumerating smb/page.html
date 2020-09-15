@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enumerating SMB</title>
+</head><body><b>Enumerating SMB.<br/>
+</b><br/>
+Now, our focus is on the enumeration of port 139 SMB. <br/>
+<br/>
+Stands for "Server Message Block." SMB is a network protocol used by Windows-based computers that allows systems within the same network to share files. It allows computers connected to the same network or domain to access files from other local computers as easily as if they were on the computer's local hard drive. <br/>
+<br/>
+Not only does SMB allow computers to share files, but it also enables computers to share printers and even serial ports from other computers within the network. For example, a computer connected to a Windows network could print a document on a printer connected to another computer on the network, as long as both machines support the SMB protocol.<br/>
+<br/>
+Though SMB was originally developed for Windows, it can also be used by other platforms, including Unix and Mac OS X, using a software implementation called Samba. SMB is commonly used in work and internal enviroments<br/>
+<br/>
+Alrigh, lets open up a terminal and we're going to be using a tool that would be very familiar to you by the end of this course, called Metasploit.Here's how to run it:<br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+Metasploit is an exploitation framework and it does a lot more than exploitation, as you can see below:<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+The auxilliary modules is like scanning and enumeration, so we can do all types of information gathering with ths.The post modules, do post exploitation. Different types of payloads, that we're look at in the exploit section, we'll also be seeing another mestasploit tool called msfvenom in the exploitation section, using it to build payloads. <br/>
+<br/>
+Please don't be overwhelmed by metasploit, I can promise that as you use it (which you will, a lot), it'll become second nature to you.<br/>
+<br/>
+OK, we're going to take the beginner route here, so, type 'search smb' and press enter. Like this:<br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+We're looking for the exact smb version from our nmap scan, we didn'tget a definite version and metasploit is going to pull out every module related to smb. For instance:<br/>
+<br/>
+<img src="image 4.png" /><br/>
+This is a post module.<br/>
+<br/>
+<img src="image 5.png" /><br/>
+This is a payload module<br/>
+<br/>
+<img src="image 6.png" /><br/>
+This is exploit module.<br/>
+<br/>
+<img src="image 7.png" /><br/>
+This is auxiliary module and exactly what we're lookingfor, which is the smb version. <br/>
+<br/>
+Go ahead and copy the first higliigt in the image above, and paste it in like this:<br/>
+<br/>
+<img src="image 8.png" /><br/>
+<br/>
+It will take you to theauxiliary smb_version, it should look like this:<br/>
+<br/>
+<img src="image 9.png" /><br/>
+<br/>
+I want you to typr in info, so you can get an idea and syntax of how it works, info is like the regular CLI --help.<br/>
+<br/>
+<img src="image 10.png" /><br/>
+<br/>
+Instead of printing out this long step with info, you can just type options, which just gives you the available options in the selected module.<br/>
+<br/>
+<img src="image 11.png" /><br/>
+<br/>
+<img src="image 12.png" /><br/>
+<br/>
+RHOSTS, stans for remote hosts, we'll see LHOST later which stands for local host. RHOST, is always the target, the machine we're attacking. When its RHOST, you can only import one host but multiple hosts when it's RHOSTS. In our instance, we're only attacking one machine, so RHOST.<br/>
+Beacuse we don't have the details of any of the other given options, the domain, password and user, all we have is the IP address of our target, we won't be using any of the other given options.<br/>
+<br/>
+<img src="image 13.png" /><br/>
+<br/>
+<img src="image 14.png" /><br/>
+<br/>
+So this gives us a little bit more information, which might notseem likea lot but knowing that it's Samba 2.2.1a, is specific and will help us out. <br/>
+<br/>
+NB: Make sure you have an open note tab, where you're copying down your findings. Like the version, information from the nmap scan. I usually just create different nots and paste my scan in them, so I can go backlater and use it for my report or even exploitaions.<br/>
+<br/>
+Aight, we're going to use a new tool, called smbclient. It's going to attempt to connect to the file share that's out there, these files might give us an idea of whta's going on in the target machine or even provide valuable information, like a backup file or something. If you don't search, you'll never know what you can find.<br/>
+<br/>
+Here's the syntax, where -l is the command to list out the files. You can put just two (2) backslashes before the IP address, if you do that, thenyou don't need to put any slash after the IP.<br/>
+<br/>
+<img src="image 15.png" /><br/>
+<br/>
+This ultimately resulted in a dead end, we didn't get any extra information and that's quite sad for me but we'll come back to smbclient lot of times in the active directory section of this course, later on. We'll focus in depth on smb in the internal part, during the active directory. We're going to keep building on all this as we proceed, until we get a hang of it and a better understanding too<br/>
+<br/>
+I know this doesn't seem like much, at all but i'm just keeping it simple (KISS), but I suggest you go out and read up on active directory in your free time.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>
